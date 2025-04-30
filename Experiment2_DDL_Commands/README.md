@@ -105,123 +105,198 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+-- Insert the below data into the Employee table, allowing the Department and Salary columns to take their default values.
 
 ```sql
--- Paste your SQL code below for Question 1
+-- INSERT into Employee(EmployeeID, Name, Position)
+VALUES(4,"Emily White","Analyst");
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/bd08beb9-9dcf-486a-aef0-01b9071d2291)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- Insert all products from Discontinued_products into Products.
+
+Table attributes are ProductID, ProductName, Price, Stock
 
 ```sql
--- Paste your SQL code below for Question 2
+-- INSERT into products(productid,productname,price,stock)
+SELECT productid,productname,price,stock from discontinued_products;
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/5e7628fe-f162-4deb-8731-fde92b089501)
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+-- Create a table named Locations with the following columns:
+
+LocationID as INTEGER
+LocationName as TEXT
+Address as TEXT
 
 ```sql
--- Paste your SQL code below for Question 3
+-- CREATE TABLE Locations(
+LocationID INTEGER,
+LocationName TEXT,
+Address TEXT); 
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/d6d07ec5-9c71-4ebe-a2b2-3528ff690790)
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- Write a SQL Query  to Rename attribute "name" to "first_name"  and add mobilenumber as number ,DOB as Date,State as varchar(30) in the table Companies. 
 
 ```sql
--- Paste your SQL code below for Question 4
+--ALTER TABLE Companies
+RENAME name TO first_name;
+ALTER TABLE Companies
+ADD mobilenumber number;
+ALTER TABLE Companies
+ADD DOB Date; 
+ALTER TABLE Companies
+ADD State varchar(30);
 ```
 
 **Output:**
 
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/3b3114e9-606f-498b-8356-537eb85eee66)
+
 
 **Question 5**
 ---
--- Paste Question 5 here
-
+-- Create a table named Bonuses with the following constraints:
+BonusID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+BonusAmount as REAL should be greater than 0.
+BonusDate as DATE.
+Reason as TEXT should not be NULL.
 ```sql
--- Paste your SQL code below for Question 5
+-- CREATE TABLE Bonuses(
+BonusID INTEGER PRIMARY KEY,
+EmployeeID INTERGER,
+BonusAmount REAL CHECK(BonusAmount > 0),
+BonusDate DATE, 
+Reason TEXT NOT NULL,
+FOREIGN KEY(EmployeeID) REFERENCES Employees(EmployeeID)); 
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/0417b2be-f456-44ce-9623-941c65fd2fc4)
 
-![Output5](output.png)
 
 **Question 6**
 ---
--- Paste Question 6 here
+--Insert the following employees into the Employee table:
 
 ```sql
--- Paste your SQL code below for Question 6
+-- INSERT INTO Employee(EmployeeID, Name, Position, Department, Salary)
+VALUES(2,"John Smith", "Developer", "IT", 75000),(3,"Anna Bell","Designer","Marketing",68000);
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/c379535a-742d-4e78-bb59-03c7bdcbe630)
 
-![Output6](output.png)
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- Create a table named ProjectAssignments with the following constraints:
+AssignmentID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+AssignmentDate as DATE should be NOT NULL.
 
 ```sql
--- Paste your SQL code below for Question 7
+-- CREATE TABLE ProjectAssignments(
+AssignmentID INTEGER PRIMARY KEY,
+EmployeeID INTEGER,
+ProjectID INTEGER,
+AssignmentDate DATE NOT NULL,
+FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID));
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/6b8ce0f9-ec43-417c-94a5-71f46ca889d5)
 
-![Output7](output.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+-- Create a new table named item with the following specifications and constraints:
+item_id as TEXT and as primary key.
+item_desc as TEXT.
+rate as INTEGER.
+icom_id as TEXT with a length of 4.
+icom_id is a foreign key referencing com_id in the company table.
+The foreign key should set NULL on updates and deletes.
+item_desc and rate should not accept NULL.
 
 ```sql
--- Paste your SQL code below for Question 8
+-- CREATE TABLE item(
+item_id TEXT PRIMARY KEY ,
+item_desc TEXT NOT NULL ,
+rate INTEGER NOT NULL,
+icom_id TEXT CHECK(LENGTH(icom_id) = 4),
+FOREIGN KEY (icom_id) REFERENCES company(com_id)
+ON UPDATE SET NULL
+ON DELETE SET NULL);
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/afa6297a-6262-4743-a25a-57bf4e0b06e2)
 
-![Output8](output.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
+-- Create a new table named contacts with the following specifications:
+contact_id as INTEGER and primary key.
+first_name as TEXT and not NULL.
+last_name as TEXT and not NULL.
+email as TEXT.
+phone as TEXT and not NULL with a check constraint to ensure the length of phone is at least 10 characters.
 
 ```sql
--- Paste your SQL code below for Question 9
+-- CREATE TABLE contacts( 
+contact_id INTEGER PRIMARY KEY,
+first_name TEXT NOT NULL,
+last_name TEXT NOT NULL,
+email TEXT,
+phone TEXT NOT NULL CHECK(LENGTH(phone) >=10));
 ```
 
 **Output:**
 
-![Output9](output.png)
+![image](https://github.com/user-attachments/assets/faec38b6-2085-4cd5-85a8-ea3c65ca2f50)
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+--Create a table named Orders with the following columns:
 
+OrderID as INTEGER
+OrderDate as TEXT
+CustomerID as INTEGER
 ```sql
--- Paste your SQL code below for Question 10
+-- CREATE TABLE Orders(
+OrderID INTEGER,
+OrderDate TEXT,
+CustomerID INTEGER);
 ```
 
 **Output:**
 
-![Output10](output.png)
+![image](https://github.com/user-attachments/assets/749f30bc-ec11-4b57-9312-60431b85a1da)
+
 
 
 ## RESULT
