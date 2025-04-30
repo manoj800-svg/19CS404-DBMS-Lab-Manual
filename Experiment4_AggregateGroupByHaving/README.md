@@ -38,123 +38,153 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+-- Write the SQL query that accomplishes the grouping of data by age intervals using the expression (age/5)5, calculates the minimum age for each group, and excludes groups where the minimum age is not less than 25.
 
 ```sql
--- Paste your SQL code below for Question 1
+-- SELECT (age/5)*5 AS age_group,MIN(age)
+FROM customer1
+GROUP BY age_group
+HAVING MIN(age) < 25;
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/81a8bbe4-31f3-48b4-b33f-2ff09f16bc52)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- Write a SQL Query to find how many medications are prescribed for each patient?
 
 ```sql
--- Paste your SQL code below for Question 2
+-- SELECT PatientID ,count(Medications) AS  AvgMedications
+FROM MedicalRecords 
+group by PatientID
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/03a65203-c476-48de-9e10-793589ef3ebf)
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+-- What is the average duration of insurance coverage for patients covered by each insurance company?
 
 ```sql
--- Paste your SQL code below for Question 3
+-- SELECT InsuranceCompany ,AVG(EndDate - StartDate) as AvgCoverageDurationDays
+FROM Insurance
+GROUP BY InsuranceCompany;
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/1bb9fcda-b375-4a1b-a2e1-bbd5def94ee2)
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- Write a SQL query to determine the number of customers who received at least one grade for their activity.
 
 ```sql
--- Paste your SQL code below for Question 4
+-- SELECT count( customer_id) as COUNT
+FROM customer
+Where grade is NOT NULL AND grade>0;
 ```
 
 **Output:**
 
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/9a0017ec-3ece-4138-9847-620b20e23a74)
 
 **Question 5**
 ---
--- Paste Question 5 here
-
+-- Write a SQL query to find the average length of email addresses (in characters):
 ```sql
--- Paste your SQL code below for Question 5
+-- SELECT AVG(Length(email)) as avg_email_length
+FROM customer
 ```
 
 **Output:**
 
-![Output5](output.png)
+![image](https://github.com/user-attachments/assets/76cfc29c-c4d1-4774-be74-9c3111e1eae7)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+-- Write a SQL query to calculate total purchase amount of all orders. Return total purchase amount.
 
 ```sql
--- Paste your SQL code below for Question 6
+-- SELECT sum(purch_amt) AS TOTAL
+FROM orders
 ```
 
 **Output:**
 
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/52c8e0c5-5287-4fd2-9e5a-78b4dcd0a06d)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- Write a SQL query to find how many employees have an income greater than 50K?
 
 ```sql
--- Paste your SQL code below for Question 7
+-- SELECT count(id) AS employees_count
+FROM employee
+where income > 50000
 ```
 
 **Output:**
 
-![Output7](output.png)
+![image](https://github.com/user-attachments/assets/d14b4114-50ac-4223-a81c-51dbbccc8f77)
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+-- Write the SQL query that achieves the grouping of data by occupation, calculates the minimum work hours for each occupation, and excludes occupations where the minimum work hour is not greater than 8.
 
 ```sql
--- Paste your SQL code below for Question 8
+-- SELECT occupation ,MIN(workhour)
+FROM employee1
+GROUP BY occupation
+HAVING MIN(workhour)>8
 ```
 
 **Output:**
 
-![Output8](output.png)
+![image](https://github.com/user-attachments/assets/7b6cf3c5-5727-4903-a2d7-9b13ac0293ac)
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+-- Write the SQL query that accomplishes the grouping of data by age intervals using the expression (age/5)5, calculates the minimum age for each group, and excludes groups where the minimum age is not less than 25.
 
 ```sql
--- Paste your SQL code below for Question 9
+-- SELECT (age/5)*5 AS age_group,MIN(age)
+FROM customer1
+GROUP BY age_group
+HAVING MIN(age) < 25;
 ```
 
 **Output:**
 
-![Output9](output.png)
+![image](https://github.com/user-attachments/assets/dc20456f-6a44-4108-8ad7-7132a544baba)
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+-- Write the SQL query that achieves the grouping of data by city, calculates the average income for each city, and includes only those cities where the average income is greater than 500,000.
 
 ```sql
--- Paste your SQL code below for Question 10
+-- SELECT city,AVG(income) 
+FROM employee
+GROUP BY city
+HAVING AVG(income) > 500000;
 ```
 
 **Output:**
 
-![Output10](output.png)
+![image](https://github.com/user-attachments/assets/463d7330-fbf5-43aa-9e1c-71478211efd0)
+
 
 
 ## RESULT
